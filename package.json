@@ -1,11 +1,14 @@
 {
   "name": "baseline",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Base setup for web project",
-  "main": "public/index.html",
-  "scripts": {
-    "test": "mocha"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bradegler/baseline.git"
   },
-  "author": "Brad Egler",
-  "license": "MIT"
+  "author": {
+    "name": "Brad Egler",
+    "email": "begler@gmail.com",
+    "url": "http://www.bradegler.com"
+  }
 }
