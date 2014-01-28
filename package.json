@@ -1,0 +1,11 @@
+{
+  "name": "baseline",
+  "version": "0.0.0",
+  "description": "Base setup for web project",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Brad Egler",
+  "license": "MIT"
+}
