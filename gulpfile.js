@@ -50,7 +50,7 @@ gulp.task('watch-sass', function () {
 
 gulp.task('default', function() {
   gulp.env.watch = true;
-  var servers = server(8080, 35729);
+  //var servers = server(8080, 35729);
 
   // Watch files and run tasks if they change
   gulp.watch('./client/js/**', function(evt) {
