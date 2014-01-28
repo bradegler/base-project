@@ -1,0 +1,13 @@
+@import 'bourbon';
+
+$primary-color: #333;
+$border-color: #BBB;
+
+$primary-size: 16px;
+
+body {
+  font: $primary-size $helvetica;
+  color: $primary-color;
+  background: #EEE;
+  margin: 50px;
+}
