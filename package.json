@@ -10,5 +10,14 @@
     "name": "Brad Egler",
     "email": "begler@gmail.com",
     "url": "http://www.bradegler.com"
+  },
+  "devDependencies": {
+    "gulp-if": "0.0.4",
+    "gulp-util": "~2.2.13",
+    "gulp-uglify": "~0.2.0",
+    "gulp": "~3.5.0",
+    "gulp-watch": "~0.5.0",
+    "gulp-browserify": "~0.3.4",
+    "gulp-sass": "~0.6.0"
   }
 }
