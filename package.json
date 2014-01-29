@@ -23,6 +23,11 @@
     "director": "~1.2.2",
     "envify": "~0.2.0",
     "react": "~0.8.0",
-    "reactify": "~0.5.1"
+    "reactify": "~0.5.1",
+    "jquery-browserify": "~1.8.1",
+    "showdown": "aslansky/showdown"
+  },
+  "dependencies": {
+    "express": "~3.4.8"
   }
 }

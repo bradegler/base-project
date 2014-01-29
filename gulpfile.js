@@ -12,9 +12,11 @@ var watch = require('gulp-watch');
 gutil.log('Environment', gutil.colors.blue(gulp.env.production ? 'Production' : 'Development'));
 
 gulp.task('scripts', function() {
-  return gulp.src('./client/js/app.js', {read: false})
+  return gulp.src('./client/js/app.js', {
+    read: false
+  })
     .pipe(browserify({
-      insertGlobals : false,
+      insertGlobals: false,
       transform: ['reactify'],
       extensions: ['.jsx'],
       debug: !gulp.env.production
@@ -27,7 +29,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   return gulp.src('./client/scss/main.scss')
     .pipe(sass({
       outputStyle: gulp.env.production ? 'compressed' : 'expanded',
@@ -37,7 +39,12 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('watch-sass', function () {
+gulp.task('html', function() {
+  return gulp.src('./client/**/*.html')
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('watch-sass', function() {
   return gulp.src('./client/scss/**/*.scss')
     .pipe(watch())
     .pipe(sass({
@@ -50,20 +57,18 @@ gulp.task('watch-sass', function () {
 
 gulp.task('default', function() {
   gulp.env.watch = true;
-  //var servers = server(8080, 35729);
 
-  // Watch files and run tasks if they change
+  gulp.watch('./client/**/*.html', function(evt) {
+    gulp.run('html', function() {});
+  });
+
   gulp.watch('./client/js/**', function(evt) {
-    gulp.run('scripts', function () {
-      //servers.lr.changed({body: {files: [evt.path]}});
-    });
+    gulp.run('scripts', function() {});
   });
 
   gulp.watch('client/scss/**', function(evt) {
-    gulp.run('styles', function () {
-      //servers.lr.changed({body: {files: [evt.path]}});
-    });
+    gulp.run('styles', function() {});
   });
 });
 
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('build', ['styles', 'scripts', 'html']);
