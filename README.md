@@ -1,4 +1,5 @@
-# Base Project for Web Development
+# Sample Project for Web Development
+Mainly just playing with different libraries
 ## Components
 * [Gulp](https://github.com/gulpjs/gulp)
 * [Browserify](http://browserify.org/)
