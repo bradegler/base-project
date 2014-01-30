@@ -5,6 +5,7 @@ Mainly just playing with different libraries
 * [Browserify](http://browserify.org/)
 * [Node.js](http://nodejs.org/)
 * [React](http://facebook.github.io/react/)
+* [Backbone](http://backbonejs.org/)
 * [Director](https://github.com/flatiron/director)
 * [SASS](http://sass-lang.com/)
 * [Bourbon](http://bourbon.io/)
