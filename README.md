@@ -9,3 +9,5 @@ Mainly just playing with different libraries
 * [Director](https://github.com/flatiron/director)
 * [SASS](http://sass-lang.com/)
 * [Bourbon](http://bourbon.io/)
+* [MongoDB](http://www.mongodb.org/)
+* [Mongoose](http://mongoosejs.com/)

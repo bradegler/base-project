@@ -1,9 +1,16 @@
 var express = require('express');
-var task = require('./routes/task');
+var fs = require('fs');
 var http = require('http');
 var path = require('path');
 
 var app = express();
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/time');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  console.log("Connected to MongoDB mongodb://localhost/time")
+});
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.favicon());
@@ -20,8 +27,12 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/api/task', task.get);
-app.post('/api/task', task.post);
+fs.readdirSync(path.join(__dirname, '/routes')).forEach(function (file) {
+  if(file.substr(-3) == '.js') {
+      route = require('./routes/' + file);
+      route.load(app);
+  }
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
