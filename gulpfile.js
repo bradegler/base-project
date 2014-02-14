@@ -19,9 +19,9 @@ gulp.task('scripts', function() {
             insertGlobals: false,
             transform: ['reactify'],
             extensions: ['.jsx'],
-            debug: !gulp.env.production
+            debug: !gutil.env.production
         }))
-        .pipe(gulpif(gulp.env.production, uglify({
+        .pipe(gulpif(gutil.env.production, uglify({
             mangle: {
                 except: ['require', 'export', '$super']
             }
@@ -32,9 +32,9 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
     return gulp.src('./client/scss/main.scss')
         .pipe(sass({
-            outputStyle: gulp.env.production ? 'compressed' : 'expanded',
+            outputStyle: gutil.env.production ? 'compressed' : 'expanded',
             includePaths: ['./client/scss'].concat(bourbon),
-            errLogToConsole: gulp.env.watch
+            errLogToConsole: gutil.env.watch
         }))
         .pipe(gulp.dest('./dist/css'));
 });
@@ -48,9 +48,9 @@ gulp.task('watch-sass', function() {
     return gulp.src('./client/scss/**/*.scss')
         .pipe(watch())
         .pipe(sass({
-            outputStyle: gulp.env.production ? 'compressed' : 'expanded',
+            outputStyle: gutil.env.production ? 'compressed' : 'expanded',
             includePaths: ['./client/scss'].concat(bourbon),
-            errLogToConsole: gulp.env.watch
+            errLogToConsole: gutil.env.watch
         }))
         .pipe(gulp.dest('./dist/css'));
 });
